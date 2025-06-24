@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSharpMarkup.WinUI.LiveChartsCore.SkiaSharpView" Version="2.4.18" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	<ProjectReference Include="..\DataManager.Data\DataManager.Data.csproj" />
+  </ItemGroup>
+
+</Project>

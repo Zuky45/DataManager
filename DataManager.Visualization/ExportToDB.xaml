@@ -1,0 +1,172 @@
+﻿<Window x:Class="DataManager.Visualization.ExportToDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataManager.Visualization"
+        mc:Ignorable="d"
+        Title="Export to Database" Height="600" Width="550"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" 
+                   Text="Export Data to Database" 
+                   FontSize="20" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,15"/>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Data Configuration Section -->
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Text="Data Information" 
+                       FontWeight="SemiBold" 
+                       Margin="0,10,0,5"/>
+
+            <!-- Data Source -->
+            <TextBlock Grid.Row="1" Grid.Column="0" 
+                       Text="Data Source:" 
+                       VerticalAlignment="Center" 
+                       Margin="0,5,10,5"/>
+            <ComboBox Grid.Row="1" Grid.Column="1"  
+                      Name="DataSourceComboBox" 
+                      SelectionChanged="DataSourceComboBox_SelectionChanged"
+                      Margin="0,5"/>
+
+            <!-- Data Name -->
+            <TextBlock Grid.Row="2" Grid.Column="0" 
+                       Text="Name:" 
+                       VerticalAlignment="Center"
+                       ToolTip="Name to save the dataset as in the database" 
+                       Margin="0,5,10,5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" 
+                     Name="DataNameTextBox" 
+                     Margin="0,5"/>
+
+            <!-- Data Description -->
+            <TextBlock Grid.Row="3" Grid.Column="0" 
+                       Text="Description:" 
+                       VerticalAlignment="Top" 
+                       Margin="0,8,10,5"/>
+            <TextBox Grid.Row="3" Grid.Column="1" 
+                     Name="DescriptionTextBox"
+                     TextWrapping="Wrap" 
+                     AcceptsReturn="True" 
+                     Height="80" 
+                     Margin="0,5"/>
+
+            <!-- Export Options -->
+            <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Text="Export Options" 
+                       FontWeight="SemiBold" 
+                       Margin="0,15,0,5"/>
+
+            <!-- Start Index -->
+            <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Start Index Controls -->
+                <TextBlock Grid.Row="0" Grid.Column="0"
+               Text="Start Index:" 
+               VerticalAlignment="Center" 
+               Margin="0,5,5,5"/>
+
+                <TextBox Grid.Row="0" Grid.Column="1" 
+             Name="StartIndexTextBox" 
+             Width="60" 
+             VerticalAlignment="Center"
+             Margin="0,5,0,5"
+             Text="1"/>
+
+                <!-- Include Description Checkbox -->
+                <CheckBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+              Content="Include Description" 
+              Name="IncludeDescriptionCheckBox" 
+              IsChecked="True" 
+              Margin="0,10,0,0"/>
+            </Grid>
+
+
+            <!-- Preview Section -->
+            <Grid Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" 
+                           Text="Data Preview:" 
+                           Margin="0,0,0,5"/>
+
+                <DataGrid Grid.Row="1" 
+                          Name="PreviewDataGrid"
+                          IsReadOnly="True"
+                          AutoGenerateColumns="True"
+                          HeadersVisibility="Column"
+                          GridLinesVisibility="All"
+                          MaxHeight="120"
+                          AlternatingRowBackground="#F5F5F5"/>
+            </Grid>
+        </Grid>
+
+        <!-- Button Section -->
+        <Grid Grid.Row="2" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" 
+                       Name="StatusTextBlock" 
+                       VerticalAlignment="Center" 
+                       Foreground="Gray"/>
+
+            <Button Grid.Column="1" 
+                    Content="Cancel" 
+                    Width="100" 
+                    Margin="0,0,10,0" 
+                    Name="CancelButton" 
+                    Click="CancelButton_Click"/>
+
+            <Button Grid.Column="2" 
+                    Content="Save to DB" 
+                    Width="120" 
+                    Name="SaveButton" 
+                    Click="SaveButton_Click"
+                    Background="#2C3E50" 
+                    Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>
+
+
